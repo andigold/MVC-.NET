@@ -1,0 +1,43 @@
+﻿@page
+@model UserRestaurnats3.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Restaurant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.Worktime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.Worktime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.User.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Restaurant.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

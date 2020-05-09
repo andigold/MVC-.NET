@@ -1,0 +1,17 @@
+1. Use different repositories for each object
+2. Create Dto's for every object that the clients submit over the network
+3. Fix Identity field in website (http://localhost:6655/Home/CreateUser)
+4. Print a message, or redirect with a message, after creation of a user
+5. Point 3. and 4. should also be followed for EditRestaurants, or any other page that would create/modify an entity.
+6. Make Paging In http://localhost:6655/home/homepage, as well as My Restaurants
+7a. Finish razor page (*)
+7b. Don't use a razor page - use normal views/controllers
+(8. Add Validations to webpages for inserting/editing. (If Weight accepts numbers, make sure the user writes numbers)
+8a. ModelValidation/JScript
+9. In addtion to 8/8a, write out errors in red below the fields for the given error ) Make sure all fields don't allow invalid data, if they do -> look inside points 8-9
+10. fix in addrestaurant to get the userid by default.
+11. Try to integrate Recaptcha for login
+12. Remove crazy Endpoint names in frontend :D
+13. Capsulate logic in SPECIFIC controllers. Users should have a USER controller etc
+
+WARNING: If you're going to be moving away from general repository pattern (Point 1), make sure you re-visit the logic for checking if an user is authorized (attribute)

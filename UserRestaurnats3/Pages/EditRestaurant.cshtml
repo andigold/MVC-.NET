@@ -1,0 +1,39 @@
+﻿@page
+@model UserRestaurnats3.Pages.EditRestaurantModel
+@{
+    ViewData["Title"] = "EditRestaurant";
+}
+
+<h2>EditRestaurant</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Restaurant.Id" />
+            <div class="form-group">
+                <label asp-for="Restaurant.Name" class="control-label"></label>
+                <input asp-for="Restaurant.Name" class="form-control" />
+                <span asp-validation-for="Restaurant.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.Address" class="control-label"></label>
+                <input asp-for="Restaurant.Address" class="form-control" />
+                <span asp-validation-for="Restaurant.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.Worktime" class="control-label"></label>
+                <input asp-for="Restaurant.Worktime" class="form-control" />
+                <span asp-validation-for="Restaurant.Worktime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Restaurant.UserId" class="control-label"></label>
+                <select asp-for="Restaurant.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="Restaurant.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@using UserRestaurnats3.Models
+@using UserRestaurnats3.Entities
+@model AllRestaurantsAndFoods
+
+    <body>
+
+        <table class="table" border="1">
+            @foreach (RestaurantAndFoodsDto raf in Model.RestaurantAndFoods)
+            {
+                <tr>
+                    <th>
+                        <text>Име на ресторанта: </text>@raf.Restaurant.Name
+                        <text>Адрес: </text>@raf.Restaurant.Address
+                        <text>Работно време: </text>@raf.Restaurant.Worktime
+                        <br />
+                        <table class="table" border="1">
+                            <tr>
+                                <th width="60%">Ястие</th>
+                                <th width="15%">Грамаж</th>
+                                <th width="15%">Калоричност</th>
+                                <th width="10%">Цена</th>
+                            </tr>
+                            @foreach (Food food in raf.Foods)
+                            {
+                                <tr>
+                                    <th width="60%">
+                                        @food.Name
+                                    </th>
+                                    <th width="15%">
+                                        @food.Weight
+                                    </th>
+                                    <th width="15%">
+                                        @food.Calories
+                                    </th>
+                                    <th width="10%">
+                                        @Convert.ToDouble(Convert.ToDouble(food.Price) / 100)
+                                    </th>
+                                </tr>
+                            }
+                        </table>
+                    </th>
+                </tr>
+            }
+        </table>
+
+@Html.ActionLink("Return to home page", "HomePage", "Home")
+    </body>
+

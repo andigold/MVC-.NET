@@ -1,0 +1,65 @@
+﻿@using UserRestaurnats3.Models
+@using UserRestaurnats3.Entities
+@model AllRestaurantsAndFoods
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+<h2>HomePage</h2>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Sign In", "CreateUser", "Home")</li>
+                    <li>@Html.ActionLink("Log In", "Login", "Home")</li>
+                    <li>@Html.ActionLink("Add Restaurant", "CreateRestaurant", "Home")</li>
+                    <li>@Html.ActionLink("Add Food", "CreateFood", "Home")</li>
+                    <li>@Html.ActionLink("My Restaurants", "AllUserRestaurants", "Home")</li>
+                    <li><a asp-page="/EditRestaurant">Edit</a><br /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <table class="table" border="1">
+        @foreach (RestaurantAndFoodsDto raf in Model.RestaurantAndFoods)
+        {
+        <tr>
+            <th>
+                <text>Име на ресторанта: </text>@raf.Restaurant.Name
+                <text>Адрес: </text>@raf.Restaurant.Address
+                <text>Работно време: </text>@raf.Restaurant.Worktime
+                <br />
+                <table class="table" border="1">
+                    <tr>
+                        <th width="60%">Ястие</th>
+                        <th width="15%">Грамаж</th>
+                        <th width="15%">Калоричност</th>
+                        <th width="10%">Цена</th>
+                    </tr>
+                    @foreach (Food food in raf.Foods)
+                    {
+                <tr>
+                    <th width="60%">
+                        @food.Name
+                    </th>
+                    <th width="15%">
+                        @food.Weight
+                    </th>
+                    <th width="15%">
+                        @food.Calories
+                    </th>
+                    <th width="10%">
+                        @Convert.ToDouble(Convert.ToDouble(food.Price) / 100)
+                    </th>
+                </tr>
+                      }
+                    </table>
+            </th>
+        </tr>
+        }
+    </table>
+    
+</body>
